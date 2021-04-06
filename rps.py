@@ -4,8 +4,6 @@ import time
 """This program plays a game of Rock, Paper, Scissors between two Players,
 and reports both Player's scores each round."""
 
-moves = ['rock', 'paper', 'scissors']
-
 
 def print_pause2(message_to_print):
     print(message_to_print)
@@ -17,6 +15,9 @@ in this game"""
 
 
 class Player:
+
+    moves = ['rock', 'paper', 'scissors']
+    
     def move(self):
         pass
 
