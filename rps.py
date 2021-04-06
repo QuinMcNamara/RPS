@@ -77,8 +77,7 @@ class HumanPlayer(Player):
         if user_input.lower() in moves:
             return user_input.lower()
         else:
-            print_pause2("Not a valid selection. Please enter "
-                         "rock, paper, or scissors:\n")
+            print_pause2("Not a valid selection.")
             self.move()
 
 
