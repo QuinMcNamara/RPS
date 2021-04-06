@@ -57,7 +57,7 @@ class Cycle2Player(Player):
     # Similar to CyclePlayer but skips 2 moves ahead
     def __init__(self):
         self.my_move = random.choice(self.moves)
-        
+
     def move(self):
         if self.my_move == self.moves[0]:
             return self.moves[2]
@@ -125,7 +125,7 @@ class Game:
             self.play_round()
             game_round += 1
         if self.scorep1 == 3:
-            print_pause2("PLayer 1 Wins the Game!!")
+            print_pause2("Player 1 Wins the Game!!")
         elif self.scorep2 == 3:
             print_pause2("Player 2 Wins the Game!!")
         print_pause2("Game over!")
