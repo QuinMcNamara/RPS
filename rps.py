@@ -67,6 +67,15 @@ class Cycle2Player(Player):
             return self.moves[1]
 
 
+class ReflectPlayer(Player):
+    # Selects move used by opponent in previous round
+    def __init__(self):
+        self.their_move = random.choice(self.moves)
+        
+    def move(self):
+        return self.their_move
+
+
 class HumanPlayer(Player):
     def move(self):
         user_input = input("Please enter rock, paper, or scissors:\n")
@@ -118,6 +127,6 @@ class Game:
 
 
 if __name__ == '__main__':
-    game = Game(HumanPlayer(), random.choice(
-        [RandomPlayer(), BartPlayer(), CyclePlayer(), Cycle2Player()])
+    game = Game(HumanPlayer(), random.choice([RandomPlayer(), BartPlayer(), 
+                CyclePlayer(), Cycle2Player(), ReflectPlayer()])
     game.play_game()
