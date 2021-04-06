@@ -26,7 +26,7 @@ class Player:
         self.their_move = their_move
 
 
-class BasicPlayer(Player):
+class RandomPlayer(Player):
     # Basic Player selects move at random
     def move(self):
         return random.choice(self.moves)
@@ -38,8 +38,8 @@ class BartPlayer(Player):
         return 'rock'
 
 
-class OrderedPlayer(Player):
-    # Ordered Player cycles through the moves in order
+class CyclePlayer(Player):
+    # CyclePlayer cycles through the moves in order
     def __init__(self):
         self.my_move = None
 
@@ -54,8 +54,8 @@ class OrderedPlayer(Player):
             return self.moves[0]
 
 
-class Order2Player(Player):
-    # Similar to Ordered Player but skips 2 moves ahead
+class Cycle2Player(Player):
+    # Similar to CyclePlayer but skips 2 moves ahead
     def __init__(self):
         self.my_move = None
         
@@ -70,7 +70,7 @@ class Order2Player(Player):
             return self.moves[1]
 
 
-class UserPlayer(Player):
+class HumanPlayer(Player):
     def move(self):
         user_input = input("Please enter rock, paper, or scissors:\n")
         if user_input.lower() in moves:
@@ -123,6 +123,6 @@ class Game:
 
 
 if __name__ == '__main__':
-    game = Game(UserPlayer(), random.choice(
-        [BasicPlayer(), BartPlayer(), OrderedPlayer(), Order2Player()])
+    game = Game(HumanPlayer(), random.choice(
+        [RandomPlayer(), BartPlayer(), CyclePlayer(), Cycle2Player()])
     game.play_game()
