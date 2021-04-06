@@ -18,10 +18,12 @@ in this game"""
 
 class Player:
     def move(self):
-        return 'rock'
+        pass
 
     def learn(self, my_move, their_move):
-        pass
+        # Player stores own move and opponent move
+        self.my_move = my_move
+        self.their_move = their_move
 
 
 class BasicPlayer(Player):
