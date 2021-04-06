@@ -42,12 +42,10 @@ class BartPlayer(Player):
 class CyclePlayer(Player):
     # CyclePlayer cycles through the moves in order
     def __init__(self):
-        self.my_move = None
+        self.my_move = random.choice(self.moves)
 
     def move(self):
-        if self.my_move == None:
-            return random.choice(self.moves)
-        elif self.my_move == self.moves[0]:
+        if self.my_move == self.moves[0]:
             return self.moves[1]
         elif self.my_move == self.moves[1]:
             return self.moves[2]
@@ -58,12 +56,10 @@ class CyclePlayer(Player):
 class Cycle2Player(Player):
     # Similar to CyclePlayer but skips 2 moves ahead
     def __init__(self):
-        self.my_move = None
+        self.my_move = random.choice(self.moves)
         
     def move(self):
-        if self.my_move == None:
-            return random.choice(self.moves)
-        elif self.my_move == self.moves[0]:
+        if self.my_move == self.moves[0]:
             return self.moves[2]
         elif self.my_move == self.moves[1]:
             return self.moves[0]
