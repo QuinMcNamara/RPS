@@ -90,7 +90,7 @@ class Game:
         self.scorep1 = 0
         self.scorep2 = 0
 
-    def beats(one, two):
+    def beats(self, one, two):
         return ((one == 'rock' and two == 'scissors') or
                 (one == 'scissors' and two == 'paper') or
                 (one == 'paper' and two == 'rock'))
@@ -108,7 +108,7 @@ class Game:
         else:
             scenario = "The round ends in a tie!"
         print_pause2(f"{scenario}")
-        print_pause2(f"The score is now:"
+        print_pause2(f"The score is now:\n"
                      f"Player 1: {self.scorep1}\n"
                      f"Player 2: {self.scorep2}\n")
         self.p1.learn(move1, move2)
