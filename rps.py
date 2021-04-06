@@ -117,10 +117,17 @@ class Game:
         self.p2.learn(move2, move1)
 
     def play_game(self):
+        game_round = 1
         print_pause2("Game start!")
-        for round in range(3):
-            print_pause2(f"Round {round}:")
+        print_pause2("First Player to 3 points wins the game!")
+        while (self.scorep1 < 3) and (self.scorep2 < 3):
+            print_pause2(f"Round {game_round}:")
             self.play_round()
+            game_round += 1
+        if self.scorep1 == 3:
+            print_pause2("PLayer 1 Wins the Game!!")
+        elif self.scorep2 == 3:
+            print_pause2("Player 2 Wins the Game!!")
         print_pause2("Game over!")
 
 
