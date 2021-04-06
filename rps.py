@@ -71,19 +71,17 @@ class ReflectPlayer(Player):
     # Selects move used by opponent in previous round
     def __init__(self):
         self.their_move = random.choice(self.moves)
-        
+
     def move(self):
         return self.their_move
 
 
 class HumanPlayer(Player):
     def move(self):
-        user_input = input("Please enter rock, paper, or scissors:\n")
-        if user_input.lower() in moves:
-            return user_input.lower()
-        else:
-            print_pause2("Not a valid selection.")
-            self.move()
+        while True:
+            user_input = input("Please enter rock, paper, or scissors:\n")
+            if user_input.lower() in moves:
+                return user_input.lower()
 
 
 class Game:
