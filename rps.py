@@ -17,7 +17,7 @@ in this game"""
 class Player:
 
     moves = ['rock', 'paper', 'scissors']
-    
+
     def move(self):
         pass
 
@@ -82,12 +82,6 @@ class HumanPlayer(Player):
             self.move()
 
 
-def beats(one, two):
-    return ((one == 'rock' and two == 'scissors') or
-            (one == 'scissors' and two == 'paper') or
-            (one == 'paper' and two == 'rock'))
-
-
 class Game:
     # Sets Player 1 and 2 and scores to 0
     def __init__(self, p1, p2):
@@ -95,6 +89,11 @@ class Game:
         self.p2 = p2
         self.scorep1 = 0
         self.scorep2 = 0
+
+    def beats(one, two):
+        return ((one == 'rock' and two == 'scissors') or
+                (one == 'scissors' and two == 'paper') or
+                (one == 'paper' and two == 'rock'))
 
     def play_round(self):
         move1 = self.p1.move()
