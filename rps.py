@@ -80,7 +80,7 @@ class HumanPlayer(Player):
     def move(self):
         while True:
             user_input = input("Please enter rock, paper, or scissors:\n")
-            if user_input.lower() in moves:
+            if user_input.lower() in self.moves:
                 return user_input.lower()
 
 
@@ -133,5 +133,5 @@ class Game:
 
 if __name__ == '__main__':
     game = Game(HumanPlayer(), random.choice([RandomPlayer(), BartPlayer(), 
-                CyclePlayer(), Cycle2Player(), ReflectPlayer()])
+                CyclePlayer(), Cycle2Player(), ReflectPlayer()]))
     game.play_game()
