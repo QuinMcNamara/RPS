@@ -6,6 +6,12 @@ and reports both Player's scores each round."""
 
 moves = ['rock', 'paper', 'scissors']
 
+
+def print_pause2(message_to_print):
+    print(message_to_print)
+    time.sleep(2)
+
+
 """The Player class is the parent class for all of the Players
 in this game"""
 
@@ -38,6 +44,17 @@ class OrderedPlayer(Player):
 class Order2Player(Player):
     # Similar to Ordered Player but skips 2 moves ahead
     def move(self):
+
+
+class UserPlayer(Player):
+    def move(self):
+        user_input = input("Please enter rock, paper, or scissors:\n")
+        if user_input.lower() in moves:
+            return user_input.lower()
+        else:
+            print_pause2("Not a valid selection. Please enter "
+                         "rock, paper, or scissors:\n")
+            self.move()
 
 
 def beats(one, two):
