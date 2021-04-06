@@ -88,23 +88,38 @@ def beats(one, two):
 
 
 class Game:
+    # Sets Player 1 and 2 and scores to 0
     def __init__(self, p1, p2):
         self.p1 = p1
         self.p2 = p2
+        self.scorep1 = 0
+        self.scorep2 = 0
 
     def play_round(self):
         move1 = self.p1.move()
         move2 = self.p2.move()
-        print(f"Player 1: {move1}  Player 2: {move2}")
+        print_pause2(f"Player 1: {move1}  Player 2: {move2}")
+        if self.beats(move1, move2):
+            self.scorep1 += 1
+            scenario = "Player 1 wins the round!"
+        elif self.beats(move2, move1):
+            self.scorep2 += 1
+            scenario = "Player 2 wins the round!"
+        else:
+            scenario = "The round ends in a tie!"
+        print_pause2(f"{scenario}")
+        print_pause2(f"The score is now:"
+                     f"Player 1: {self.scorep1}\n"
+                     f"Player 2: {self.scorep2}\n")
         self.p1.learn(move1, move2)
         self.p2.learn(move2, move1)
 
     def play_game(self):
-        print("Game start!")
+        print_pause2("Game start!")
         for round in range(3):
-            print(f"Round {round}:")
+            print_pause2(f"Round {round}:")
             self.play_round()
-        print("Game over!")
+        print_pause2("Game over!")
 
 
 if __name__ == '__main__':
