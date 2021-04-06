@@ -40,6 +40,9 @@ class BartPlayer(Player):
 
 class OrderedPlayer(Player):
     # Ordered Player cycles through the moves in order
+    def __init__(self):
+        self.my_move = None
+
     def move(self):
         if self.my_move == None:
             return random.choice(self.moves)
@@ -53,6 +56,9 @@ class OrderedPlayer(Player):
 
 class Order2Player(Player):
     # Similar to Ordered Player but skips 2 moves ahead
+    def __init__(self):
+        self.my_move = None
+        
     def move(self):
         if self.my_move == None:
             return random.choice(self.moves)
