@@ -13,13 +13,13 @@ Python
 ## How to Play
 * Clone Project
 
-`placeholder`
+`https://github.com/QuinMcNamara/RPS.git`
 
 * Open Terminal
 * Navigate to directory containing game file
 * Run game on terminal
 
-`python3 .py`
+`python3 rps.py`
 
 
 ### License
